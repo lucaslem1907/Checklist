@@ -1,0 +1,45 @@
+﻿using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace Demo
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+
+
+        }
+
+        private void AddItem(object sender, RoutedEventArgs e)
+        {
+            string Item = $" - {ToDoItem.Text}";
+
+            if (!string.IsNullOrEmpty(Item))
+            {
+                TextBlock item = new TextBlock
+                {
+                    Padding = new Thickness(10),
+                    Foreground = new SolidColorBrush(Colors.Black),
+                    Text = Item
+
+                };
+
+                TodoList.Children.Add(item);
+                ToDoItem.Clear();
+            }
+        }
+    }
+}
