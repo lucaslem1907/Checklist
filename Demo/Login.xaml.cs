@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,16 +14,19 @@ using System.Windows.Shapes;
 namespace Checklist
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UserControl2.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Login : UserControl
     {
-        public MainWindow()
+        public Login()
         {
             InitializeComponent();
-            MainContent.Content = new Login();
         }
 
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Window window = Window.GetWindow(this);
+            window.Content = new ChecklistOverview();
+        }
     }
 }
